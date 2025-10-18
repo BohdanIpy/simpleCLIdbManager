@@ -59,7 +59,7 @@ func (p PostgresRepoUser) DeleteUserById(id int) (sql.Result, error) {
 }
 
 func (p PostgresRepoUser) UpdateUserById(id int, user models.User) (sql.Result, error) {
-	res, err := p.db.Exec("update users set name = $1, email = $2, password = $3, registered_at =$4 where id = $5;", user.Name, user.Email, user.Password, time.Now(), user.ID)
+	res, err := p.db.Exec("UPDATE users SET name = $1, email = $2, password = $3, registered_at = $4 WHERE id = $5;", user.Name, user.Email, user.Password, time.Now(), user.ID)
 	return res, err
 }
 

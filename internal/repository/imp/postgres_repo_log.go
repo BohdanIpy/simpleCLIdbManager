@@ -34,7 +34,7 @@ func (p PostgresRepoLog) GetLogs() ([]models.Log, error) {
 
 func (p PostgresRepoLog) GetLogById(id int) (models.Log, error) {
 	var log models.Log
-	err := p.db.QueryRow("SELECT * FROM logs WHERE id=?;", id).Scan(&log.Id, &log.LogTime, &log.LogMessage)
+	err := p.db.QueryRow("SELECT * FROM logs WHERE id = $1;", id).Scan(&log.Id, &log.LogTime, &log.LogMessage)
 	if err != nil {
 		return models.Log{}, err
 	}
