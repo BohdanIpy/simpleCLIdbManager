@@ -66,3 +66,5 @@ go run cmd/cliManager/main.go host post password database
 ```
 
 Tests located in the internal/middleware and internal/repository/impl
+
+## do not forget to create the .env file with necessary data for Docker!!!
