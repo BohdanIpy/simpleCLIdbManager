@@ -42,7 +42,7 @@ func (p PostgresRepoLog) GetLogById(id int) (models.Log, error) {
 }
 
 func (p PostgresRepoLog) InsertLog(user models.Log) (sql.Result, error) {
-	res, err := p.db.Exec("INSERT INTO logs (log_time, log_message) VALUES ($1, $2)", user.LogTime, user.LogMessage)
+	res, err := p.db.Exec("INSERT INTO logs (log_time, log_message) VALUES ($1, $2);", user.LogTime, user.LogMessage)
 	return res, err
 }
 
